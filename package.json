@@ -2,6 +2,11 @@
   "name": "retro-gateway",
   "version": "1.0.0",
   "main": "server.js",
+  "scripts": {
+    "docker": "docker build -t eahedav/retro-gateway .",
+    "docker:tag": "docker tag eahedav/retro-api eahedav/retro-gateway",
+    "docker:push": "docker push eahedav/retro-gateway"
+  },
   "dependencies": {
     "express-gateway": "^1.3.0"
   }

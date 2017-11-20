@@ -8,10 +8,17 @@ apiEndpoints:
   users:
     host: localhost
     paths: /users
+  graphql:
+    host: '*'
+    paths:
+      - /graphiql
+      - /graphql
 serviceEndpoints:
   # see: http://www.express-gateway.io/docs/configuration/gateway.config.yml/serviceEndpoints
   users:
     url: 'http://localhost:9876'
+  graphql:
+    url: 'http://retro-api:3000'
 policies:
   - basic-auth
   - cors
@@ -23,11 +30,19 @@ policies:
   - rate-limit
 pipelines:
   # see: https://www.express-gateway.io/docs/configuration/gateway.config.yml/pipelines
-  default:
+  users:
     apiEndpoints:
       - users
     policies:
       - proxy:
         - action:
             serviceEndpoint: users
+            changeOrigin: true
+  retro-api-graphql:
+    apiEndpoints:
+      - graphql
+    policies:
+      - proxy:
+        - action:
+            serviceEndpoint: graphql
             changeOrigin: true
