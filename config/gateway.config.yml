@@ -34,6 +34,10 @@ pipelines:
     apiEndpoints:
       - users
     policies:
+      - cors:
+        - action:
+            origin: '*'
+            methods: 'HEAD,PUT,PATCH,POST,DELETE'
       - proxy:
         - action:
             serviceEndpoint: users
@@ -42,6 +46,10 @@ pipelines:
     apiEndpoints:
       - graphql
     policies:
+      - cors:
+        - action:
+          origin: '*'
+          methods: 'HEAD,PUT,PATCH,POST,DELETE'
       - proxy:
         - action:
             serviceEndpoint: graphql

@@ -1,7 +1,9 @@
 'use strict';
 
 module.exports = {
-  properties: {
-    email: {isRequired: false, isMutable: true}
-  }
+    properties: {
+        username: {isRequired: true},
+        email: {isRequired: true, isMutable: true},
+        password: {isRequired: true}
+    }
 };
