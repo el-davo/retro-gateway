@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
+    "test": "echo 0",
     "docker": "docker build -t eahedav/retro-gateway .",
     "docker:tag": "docker tag eahedav/retro-api eahedav/retro-gateway",
     "docker:push": "docker push eahedav/retro-gateway"
