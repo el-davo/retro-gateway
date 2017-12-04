@@ -1,8 +1,15 @@
 version: '2'
 services:
-  redis:
-    image: redis
-    volumes:
-      - ./redis.conf:/usr/local/etc/redis/redis.conf
+  retro-user-management:
+    image: eahedav/retro-user-management:latest
     ports:
-      - "6379:6379"
+      - 3000:3000
+    networks:
+      main:
+        aliases:
+          - retro-api
+    command: >
+      /bin/bash -c "sleep 2; node ."
+
+networks:
+  main:

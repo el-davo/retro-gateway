@@ -8,6 +8,7 @@
     "docker:push": "docker push eahedav/retro-gateway"
   },
   "dependencies": {
-    "express-gateway": "^1.3.0"
+    "express-gateway": "^1.4.1",
+    "express-gateway-plugin-loopback": "^0.0.2"
   }
 }
