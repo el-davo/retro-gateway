@@ -7,7 +7,9 @@ apiEndpoints:
   # see: http://www.express-gateway.io/docs/configuration/gateway.config.yml/apiEndpoints
   users:
     host: localhost
-    paths: /users
+    paths:
+      - /Users
+      - /Users/login
   graphql:
     host: '*'
     paths:
@@ -16,11 +18,11 @@ apiEndpoints:
 serviceEndpoints:
   # see: http://www.express-gateway.io/docs/configuration/gateway.config.yml/serviceEndpoints
   users:
-    url: 'http://localhost:9876'
+    url: 'http://localhost:3000/api'
   graphql:
     url: 'http://retro-api:3000'
 policies:
-  - basic-auth
+  - user-exists
   - cors
   - expression
   - key-auth
@@ -46,6 +48,7 @@ pipelines:
     apiEndpoints:
       - graphql
     policies:
+      - user-exists:
       - cors:
         - action:
           origin: '*'
