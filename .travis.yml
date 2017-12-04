@@ -6,7 +6,6 @@ services:
   - docker
 install:
 - yarn
-- yarn lint
 cache:
   yarn: true
 deploy:
