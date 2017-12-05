@@ -6,7 +6,7 @@ db:
 
 plugins:
   express-gateway-plugin-loopback:
-    baseUrl: "http://localhost:3000"
+    baseUrl: "http://retro-user-management:3000"
     userExistsPath: "/api/me"
 
 crypto:
