@@ -6,7 +6,7 @@ db:
 
 plugins:
   express-gateway-plugin-loopback:
-    baseUrl: "http://test-retro-user-management:3000"
+    baseUrl: <%= ENV['LOOPBACK_USER_MANAGEMENT'] %>
     userExistsPath: "/api/me"
 
 crypto:
